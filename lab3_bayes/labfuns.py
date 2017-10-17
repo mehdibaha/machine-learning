@@ -205,6 +205,7 @@ def testClassifier(classifier, dataset='iris', dim=0, split=0.7, ntrials=100):
         means[trial] = 100*np.mean((yPr==yTe).astype(float))
 
     print("Final mean classification accuracy ", "%.3g" % (np.mean(means)), "with standard deviation", "%.3g" % (np.std(means)))
+    return np.mean(means), np.std(means)
 
 
 # ## Plotting the decision boundary
