@@ -109,3 +109,13 @@
    3. Compute **reliability coefficient**: αt =log(εt/1 - εt)
    4. Update weights using **reliability coefficient**
    5. Normalize all weights
+
+## Dimensionality Reduction
+
+### Principal Component Analysis
+* Reduce the number of variables by dealing wih components of larger varainces
+* The eigenvectors help find the *direction* of the data in lower dimensions
+
+### Discriminant function
+* Finds similarity in features by computing cosines between vectors
+* Similar vector are localized in a *supspace* spanning by a *set of basis* ui.
