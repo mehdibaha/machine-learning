@@ -41,7 +41,7 @@
 * **Bayes decision theory**: yMAP = argmax P(x|y)P(y)
    where P(x|y) is likelihood distribution and P(y) is prior distribution
 
-## Probalistic Learning Framework
+### Probalistic Learning Framework
 * **Maximum Likelihood Estimate**: Maximizing likelihood of data
    Problem: More features => More difficult to model
    Solution: **Naive Bayes** => All features are regarded as independent.
@@ -65,7 +65,7 @@
    wi ← wi + η(t − w⃗T ⃗x)xi
 * Minimization of structural risk = Maximization of the margin
 
-## Support Vector Machines
+### Support Vector Machines
 * We can separate almost everything in higher dimensions
    1. Transform Input in high-dimension w/ function φ
    2. Choose unique separating hyperplane
@@ -73,6 +73,7 @@
 * ++ Work well with small data ++ Fast ++ Generalize well
 * Kernel trick can solve inefficiency by avoiding calculating higher dimenions
 * **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**
+
    0. C = +inf for NO slack, C € R for allowing slack
    1. Choose kernel function
    2. Compute αi
@@ -88,3 +89,23 @@
 * In deep networks, gradients **vanish** as they become really small
 * **Convolutional Networks**
    
+## Ensemble Learning
+* Combining knowledge from **multiple** classifiers
+* **Diverse** and **complementary** set of high-bias classifiers can yield **low-bias**
+
+### Bagging
+* Use replicates of training set by sampling with replacement
+* Reduce variance of classifier if weak classifiers *are better than random*
+* If there is *enough independence* amongst weak classifiers
+
+### Boosting
+* The selection method encourages classifiers to be diverse, de-correlated
+* Creating single strong classifier from a set of weak learners
+   1. Apply learner to weighted samples
+   2. Increase weights of misclassified examples
+* Adaboost Algorithm:
+   1. Set uniform weight to all samples
+   2. Train T classifiers and select the one minimizing training error
+   3. Compute **reliability coefficient**: αt =log(εt/1 - εt)
+   4. Update weights using **reliability coefficient**
+   5. Normalize all weights
