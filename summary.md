@@ -3,7 +3,7 @@
 ## Nearest Neighbour methods
 * Computes distance between new point and all samples
 * Pick k neighbours that are are nearest to x (majority vote to decide)
-* *k << : High Variance, Low Bias* & *k >> : Low Variance, High Bias*
+* *k << High Variance, Low Bias* & *k >> Low Variance, High Bias*
 * **Pros**: Good performance, effective in low dimension data
 * **Cons**: Memory requirement and costly to compute distances
 
@@ -73,7 +73,8 @@
 * ++ Work well with small data ++ Fast ++ Generalize well
 * Kernel trick can solve inefficiency by avoiding calculating higher dimenions
 * **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**
-   0. C = +inf for NO slack, C € R for allowing slack
-   1. Choose kernel function
-   2. Compute αi
-   3. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
+
+0. C = +inf for NO slack, C € R for allowing slack
+1. Choose kernel function
+2. Compute αi
+3. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
