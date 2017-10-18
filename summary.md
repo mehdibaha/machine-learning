@@ -59,10 +59,10 @@
 * y = sign(∑ xi\*wi)
 * Finding the best weights to separate data
 * **Perceptron Learning**: Incremental learning
-   wi ← wi + η(t − y)xi (only change when output is wrong!)
+   * wi ← wi + η(t − y)xi (only change when output is wrong!)
 * **Delta Rule**: Minimize ∑||t −w⃗T⃗x||^2
-    wi ← w⃗ − η gradw⃗||t − w⃗ T⃗x||^2 (for each sample)
-    wi ← wi + η(t − w⃗T ⃗x)xi
+    * wi ← w⃗ − η gradw⃗||t − w⃗ T⃗x||^2 (for each sample)
+    * wi ← wi + η(t − w⃗T ⃗x)xi
 * Minimization of structural risk = Maximization of the margin
 
 ### Support Vector Machines
