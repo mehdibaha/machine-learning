@@ -61,15 +61,15 @@
 * **Perceptron Learning**: Incremental learning
    wi ← wi + η(t − y)xi (only change when output is wrong!)
 * **Delta Rule**: Minimize ∑||t −w⃗T⃗x||^2
-   wi ← w⃗ − η gradw⃗||t − w⃗ T⃗x||^2 (for each sample)
-   wi ← wi + η(t − w⃗T ⃗x)xi
+    wi ← w⃗ − η gradw⃗||t − w⃗ T⃗x||^2 (for each sample)
+    wi ← wi + η(t − w⃗T ⃗x)xi
 * Minimization of structural risk = Maximization of the margin
 
 ### Support Vector Machines
 * We can separate almost everything in higher dimensions
-   1. Transform Input in high-dimension w/ function φ
-   2. Choose unique separating hyperplane
-   3. Classify new data using hyperplane
+    1. Transform Input in high-dimension w/ function φ
+    2. Choose unique separating hyperplane
+    3. Classify new data using hyperplane
 * ++ Work well with small data ++ Fast ++ Generalize well
 * Kernel trick can solve inefficiency by avoiding calculating higher dimenions
 * **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**
