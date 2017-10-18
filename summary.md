@@ -73,8 +73,18 @@
 * ++ Work well with small data ++ Fast ++ Generalize well
 * Kernel trick can solve inefficiency by avoiding calculating higher dimenions
 * **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**
+   0. C = +inf for NO slack, C € R for allowing slack
+   1. Choose kernel function
+   2. Compute αi
+   3. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
 
-0. C = +inf for NO slack, C € R for allowing slack
-1. Choose kernel function
-2. Compute αi
-3. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
+## Artificial Neural Networks
+* 1-Layer NN can implement **any linear function**, 2-Layer NN **any function**
+* Perceptron/delta impossible as we lose info on weight of each neuron
+* **Trick**: Using continuous threshold-like functions
+   *Goal*: Minize error as function of *all* weights
+   1. Compute direction where total error increases most
+   2. Back-propragate weights in opposite direction wi ← wi − η\*∂E/∂wi
+* In deep networks, gradients **vanish** as they become really small
+* **Convolutional Networks**
+   
