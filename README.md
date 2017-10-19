@@ -22,7 +22,13 @@
 * *Goal: Predict target associated to any arbitrary new input*
 * **Least Squares**: Minimize squared error between target and input
 * **RANSAC**: Robust fit of model to data set S which contains outliers
-* **PARAM vs Non-PARAM**: Param better if close to the true form of *f* or high dimension
+* **k-NN**: To predict Y from X, take k closest points to X in training data and take the average of the responses
+   * f(x) = 1/k\*∑yi
+   * Larger values of k provide a smoother and less  variable fit (lower variance!)
+   * In higher dimensions k-NN often preforms worse than linear regression.
+* **PARAM vs Non-PARAM**:
+   * *PARAM* better if close to the true form of *f* or *high dimension*
+   * Since Parametric are more interpretable, more prefered if error is similar or slighly lower
 * **Ridge Regression**: Reduce useless features to almost zero with *shrinkage penalty*
 * **The Lasso**: Can reduce useless features to exactly zero with *l1-norm of shrinkage penalty*
 
