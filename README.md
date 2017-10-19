@@ -108,7 +108,7 @@
 ### Bagging
 * Use replicates of training set by sampling with replacement
 * Weak classifiers must be *better than random* and *enough independence* between them
-* Using **high-variance, low-bias** classifiers can yield **low-variance** classifier
+* **Bias-- Variance++ ==> Variance--**
 
 ### Forest
 * Bagging + Random feature selection at *each* node
