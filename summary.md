@@ -86,10 +86,11 @@
 * 1-Layer NN can implement **any linear function**, 2-Layer NN **any function**
 * Perceptron/delta impossible as we lose info on weight of each neuron
 * **Trick**: Using continuous threshold-like functions
-   *Goal*: Minize error as function of *all* weights
+   * *Goal*: Minize error as function of *all* weights
    1. Compute direction where total error increases most
    2. Back-propragate weights in opposite direction wi ← wi − η\*∂E/∂wi
 * In deep networks, gradients **vanish** as they become really small
+   * We can avoid by having non-squashing activation (Rectified Linear Unit aka ReLU)
 * **Convolutional Networks**
    
 ## Ensemble Learning
