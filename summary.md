@@ -1,40 +1,41 @@
 # ML Summary
 
 ## Nearest Neighbour methods
-* Computes distance between new point and all samples
-* Pick k neighbours that are are nearest to x (majority vote to decide)
+* Compute distance between new point and all samples
+* Pick k neighbours that are nearest to x (majority vote to decide)
 * *k << High Variance, Low Bias* & *k >> Low Variance, High Bias*
 * **Pros**: Good performance, effective in low dimension data
 * **Cons**: Memory requirement and costly to compute distances
 
 ## Decision Trees
-* Branches with unique labels called leaves (stop tree)
-    **else** Split recursively nodes by best information gain
-* **Entropy**: **∑-pi\*log2(pi)**
+* **if** Branch with unique label (leave): stop tree
+* **else**: Split recursively nodes by best information gain
+* **Entropy**: **∑-pi\*log2(pi)** where pi is proportion of label in dataset
 * **Information gain**: **Gain(D, A) = Ent(S)−∑Ent(Sv)\*|Sv|/|S|**
     *where Sv is subset of dataset D with values ∈ A*
-* **Gini impurity**: **1-∑pi^2** (replacement for Entropy)
-* **Prune tree** by removing unnecessary branches
-    *using a validation set to prevent overfitting*
+* **Gini impurity**: **1-∑pi^2** (replacement for Entropy, more sensitive to equal probabilities)
+* **Prune tree** by removing unnecessary branches, using:
+   * *validation set* to get un-biased pruning
+   * *test set* to see how the pruned tree generalize on new data
     
 ## Regression
 * *Goal: Predict target associated to any arbitrary new input*
 * **Least Squares**: Minimize squared error between target and input
 * **RANSAC**: Robust fit of model to data set S which contains outliers
 * **PARAM vs Non-PARAM**: Param better if close to the true form of *f* or high dimension
-* **Ridge Regression/The Lasso**: Useful for reducing to almost zero/zero certain features
+* **Ridge Regression/The Lasso**: Useful for reducing to almost zero or zero certain features
 
 ## Challenges
-* *Model complexity>> :: Training Error-- Test Error++ (sweet spot!)*
-    *Training set*: Fitting the models
-    *Validation set*: Determine hyperparameters
-    *Test set*: General assesment of the model
+* *Model complexity>> == Training Error-- Test Error++ (sweet spot!)*:
+    * *Training set*: Fitting the models
+    * *Validation set*: Determine hyperparameters
+    * *Test set*: General assesment of the model
 * **Curse of dimensionality**: as dimensions grow, data points more sparse
 * **Bias**-**Variance** tradeoff: Error = Variance + Bias^2
     * **Bias** measures average estimation with true function
     * **Variance** measures dependency of classifier on random sampling in training set
 * **Conclusion**:
-    Match the model complexity to the data resources, not to the target complexity
+    * Match the model complexity to the data resources, not to the target complexity
     
 ## Probalistic Reasoning
 * **Probility Methods** make results interpretable, and define a unified ML theory
@@ -43,17 +44,17 @@
 
 ### Probalistic Learning Framework
 * **Maximum Likelihood Estimate**: Maximizing likelihood of data
-   Problem: More features => More difficult to model
-   Solution: **Naive Bayes** => All features are regarded as independent.
+   * Problem: More features => More difficult to model
+   * Solution: **Naive Bayes** => All features are regarded as independent
 * **Maximum a Posteriori**: Model parameters are probabilities
 * We can try to fit a **mixture** of K distributions:
    * **K-Means** finds centroids with neighboring points
-     ++ Guaranteed to converge
-     -- Sensitive to initial conditions
-     -- Euclidian distance favours spherical clusters
+     * **++** Guaranteed to converge
+     * **--** Sensitive to initial conditions
+     * **--** Euclidian distance favors spherical clusters
    * Expectation Maximization w/ **Mixture of Gaussians**
-     ++ Can describe complex multi-modeal probability distributions
-     -- Data points are smoothly used to update all parameters
+     * **++** Can describe complex multi-modal probability distributions
+     * **--** Data points are smoothly used to update all parameters
    
 ## Classification with Separating Hyperplanes
 * y = sign(∑ xi\*wi)
@@ -72,8 +73,7 @@
     3. Classify new data using hyperplane
 * ++ Work well with small data ++ Fast ++ Generalize well
 * Kernel trick can solve inefficiency by avoiding calculating higher dimenions
-* **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**
-
+* **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**:
    0. C = +inf for NO slack, C € R for allowing slack
    1. Choose kernel function
    2. Compute αi
