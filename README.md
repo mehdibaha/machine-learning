@@ -1,5 +1,17 @@
 # ML Summary
 
+## General challenges
+* *Model complexity>> == Training Error-- Test Error++ (sweet spot!)*:
+    * *Training set*: Fitting the models
+    * *Validation set*: Determine hyperparameters
+    * *Test set*: General assesment of the model
+* **Curse of dimensionality**: as dimensions grow, data points more sparse
+* **Bias**-**Variance** tradeoff: Error = Variance + Bias^2
+    * **Bias** measures average estimation with true function
+    * **Variance** measures dependency of classifier on random sampling in training set
+* **Conclusion**:
+    * Match the model complexity to the data resources, not to the target complexity
+ 
 ## Nearest Neighbour methods
 * Compute distance between new point and all samples
 * Pick k neighbours that are nearest to x (majority vote to decide)
@@ -8,8 +20,7 @@
 * **Cons**: Memory requirement and costly to compute distances
 
 ## Decision Trees
-* **if** Branch with unique label (leave): stop tree
-* **else**: Split recursively nodes by best information gain
+* **if** Stop growing tree when unique label else split recursively nodes by best information gain
 * **Entropy**: **∑-pi\*log2(pi)** where pi is proportion of label in dataset
 * **Information gain**: **Gain(D, A) = Ent(S)−∑Ent(Sv)\*|Sv|/|S|**
     *where Sv is subset of dataset D with values ∈ A*
@@ -17,7 +28,7 @@
 * **Prune tree** by removing unnecessary branches, using:
    * *validation set* to get un-biased pruning
    * *test set* to see how the pruned tree generalize on new data
-    
+
 ## Regression
 * *Goal: Predict target associated to any arbitrary new input*
 * **Least Squares**: Minimize squared error between target and input
@@ -31,18 +42,6 @@
    * Since Parametric are more interpretable, more prefered if error is similar or slighly lower
 * **Ridge Regression**: Reduce useless features to almost zero with *shrinkage penalty*
 * **The Lasso**: Can reduce useless features to exactly zero with *l1-norm of shrinkage penalty*
-
-## Challenges
-* *Model complexity>> == Training Error-- Test Error++ (sweet spot!)*:
-    * *Training set*: Fitting the models
-    * *Validation set*: Determine hyperparameters
-    * *Test set*: General assesment of the model
-* **Curse of dimensionality**: as dimensions grow, data points more sparse
-* **Bias**-**Variance** tradeoff: Error = Variance + Bias^2
-    * **Bias** measures average estimation with true function
-    * **Variance** measures dependency of classifier on random sampling in training set
-* **Conclusion**:
-    * Match the model complexity to the data resources, not to the target complexity
     
 ## Probalistic Reasoning
 * **Probility Methods** make results interpretable, and define a unified ML theory
@@ -78,6 +77,11 @@
     1. Transform Input in high-dimension w/ function φ
     2. Choose unique separating hyperplane
     3. Classify new data using hyperplane
+* Popular kernels:
+   * Linear: xT.y + 1
+   * Polynomial: (xT.y + 1)^p
+   * Radial: exp -(x-y)^2/2sigma^2
+   * Sigmoid: tanh(kxT.y - lamb)
 * Advantages:
    * **++** Work well with small data
    * **++** Fast
