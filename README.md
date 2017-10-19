@@ -98,7 +98,9 @@
    2. Back-propragate weights in opposite direction wi ← wi − η\*∂E/∂wi
 * In deep networks, gradients **vanish** as they become really small
    * We can avoid by having non-squashing activation (Rectified Linear Unit aka ReLU)
-* **Convolutional Networks**
+* **Convolutional Networks**: Alternating convolution and sub-sampling layers (pooling)
+* **Dropout**: Randomly *mute* neurons in network to avoid overfitting
+   * Dropout helps the network to generalize better and increase accuracy since the (possibly somewhat dominating) influence of a single node is decreased by dropout.
    
 ## Ensemble Learning
 * Combining knowledge from **multiple** classifiers
@@ -139,6 +141,6 @@
 * **Idea**: Vectors in same class are localized close to each other
 * Computes **closeness** in vectors by computing different types of similarities
    * **Angle**: Computes cosine between vector (closer to 1, more likely to be in certain label)
-   * Subspace Method: exploit localization of pattern distributions
-      1. **Idea**: Samples in same cass are localized in same subspace
-      2. Determine class of new input by calculating **projection length** to subspace
+* Subspace Method: exploit localization of pattern distributions
+   1. **Idea**: Samples in same cass are localized in same subspace
+   2. Determine class of new input by calculating **projection length** to subspace
