@@ -104,12 +104,11 @@
    
 ## Ensemble Learning
 * Combining knowledge from **multiple** classifiers
-* **Diverse** and **complementary** set of high-bias classifiers can yield **low-bias**
 
 ### Bagging
 * Use replicates of training set by sampling with replacement
-* Reduce variance of classifier if weak classifiers *are better than random*
-* If there is *enough independence* amo   ngst weak classifiers
+* Weak classifiers must be *better than random* and *enough independence* between them
+* Using **high-variance, low-bias** classifiers can yield **low-variance** classifier
 
 ### Forest
 * Bagging + Random feature selection at *each* node
