@@ -107,7 +107,15 @@
 ### Bagging
 * Use replicates of training set by sampling with replacement
 * Reduce variance of classifier if weak classifiers *are better than random*
-* If there is *enough independence* amongst weak classifiers
+* If there is *enough independence* amo   ngst weak classifiers
+
+### Forest
+* Bagging + Random feature selection at *each* node
+* Two kinds of randomness:
+   * Sampling training data (like in Bagging)
+   * Feature selection at each node
+* Trees are less correlated i.e even higher variance between learners
+* Suited for multi-class problem
 
 ### Boosting
 * The selection method encourages classifiers to be diverse, de-correlated
