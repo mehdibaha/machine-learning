@@ -26,27 +26,27 @@
     *where Sv is subset of dataset D with values ∈ A*
 * **Gini impurity**: **1-∑pi^2** (replacement for Entropy, more sensitive to equal probabilities)
 * **Prune tree** by removing unnecessary branches, using:
-   * *validation set* to get un-biased pruning
-   * *test set* to see how the pruned tree generalize on new data
+    * *validation set* to get un-biased pruning
+    * *test set* to see how the pruned tree generalize on new data
 
 ## Regression
 * *Goal: Predict target associated to any arbitrary new input*
 * **Least Squares**: Minimize squared error between target and input
 * **RANSAC**: Robust fit of model to data set S which contains outliers
 * **k-NN**: To predict Y from X, take k closest points to X in training data and take the average of the responses
-   * f(x) = 1/k\*∑yi
-   * Larger values of k provide a smoother and less  variable fit (lower variance!)
-   * In higher dimensions k-NN often preforms worse than linear regression.
+    * f(x) = 1/k\*∑yi
+    * Larger values of k provide a smoother and less  variable fit (lower variance!)
+    * In higher dimensions k-NN often preforms worse than linear regression.
 * **PARAM vs Non-PARAM**:
-   * *PARAM* better if close to the true form of *f* or *high dimension*
-   * Since Parametric are more interpretable, more prefered if error is similar or slighly lower
+    * *PARAM* better if close to the true form of *f* or *high dimension*
+    * Since Parametric are more interpretable, more prefered if error is similar or slighly lower
 * **Ridge Regression**: Reduce useless features to almost zero with *shrinkage penalty*
 * **The Lasso**: Can reduce useless features to exactly zero with *l1-norm of shrinkage penalty*
     
 ## Probalistic Reasoning
 * **Probility Methods** make results interpretable, and define a unified ML theory
-* **Bayes decision theory**: yMAP = argmax P(x|y)P(y)
-   where P(x|y) is likelihood distribution and P(y) is prior distribution
+* **Bayes decision theory**:
+   * yMAP = argmax P(x|y)P(y) where P(x|y) is **likelihood distribution** and P(y) is **prior distribution**
 
 ### Probalistic Learning Framework
 * **Maximum Likelihood Estimate**: Maximizing likelihood of data
@@ -54,19 +54,22 @@
    * Solution: **Naive Bayes** => All features are regarded as independent
 * **Maximum a Posteriori**: Model parameters are probabilities
 * We can try to fit a **mixture** of K distributions:
-   * **K-Means** finds centroids with neighboring points
-     * **++** Guaranteed to converge
-     * **--** Sensitive to initial conditions
-     * **--** Euclidian distance favors spherical clusters
+    * **K-Means** finds centroids with neighboring points
+        * **++** Guaranteed to converge
+        * **--** Sensitive to initial conditions
+        * **--** Euclidian distance favors spherical clusters
    * Expectation Maximization w/ **Mixture of Gaussians**
-     * **++** Can describe complex multi-modal probability distributions
-     * **--** Data points are smoothly used to update all parameters
+        * **++** Can describe complex multi-modal probability distributions
+        * **--** Data points are smoothly used to update all parameters
+* **Conclusion**:
+    * Better ways of comparing models involve estimating the posterior of the model given the data by integrating over all possible values of the parameters. This way, more complex models will have a much better fit to the data but only for a much more restricted domain of the parameter space, and therefore, more simple models have a chance to win the comparison.
    
 ## Classification with Separating Hyperplanes
 * y = sign(∑ xi\*wi)
 * Finding the best weights to separate data
 * **Perceptron Learning**: Incremental learning
-   * wi ← wi + η(t − y)xi (only change when output is wrong!)
+    * Initialize weights to zeros(training_dim+1) and add 1-element to samples
+    * wi ← wi -+ x (only change when output is wrong!)
 * **Delta Rule**: Minimize ∑||t −w⃗T⃗x||^2
     * wi ← w⃗ − η gradw⃗||t − w⃗ T⃗x||^2 (for each sample)
     * wi ← wi + η(t − w⃗T ⃗x)xi
@@ -77,34 +80,34 @@
     1. Transform Input in high-dimension w/ function φ
     2. Choose unique separating hyperplane
     3. Classify new data using hyperplane
-* Popular kernels:
-   * Linear: xT.y + 1
-   * Polynomial: (xT.y + 1)^p
-   * Radial: exp -(x-y)^2/2sigma^2
-   * Sigmoid: tanh(kxT.y - lamb)
+* Popular kernels
+    * Linear: xT.y + 1
+    * Polynomial: (xT.y + 1)^p
+    * Radial: exp -(x-y)^2/2sigma^2
+    * Sigmoid: tanh(kxT.y - lamb)
 * Advantages:
-   * **++** Work well with small data
-   * **++** Fast
-   * **++** Generalize well
+    * **++** Work well with small data
+    * **++** Fast
+    * **++** Generalize well
 * Kernel trick can solve inefficiency by avoid calculating higher dimenions
 * Maximize **∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj)** under **0≤αi≤C** ∀i:
-   1. C = +inf for NO slack, C € R for allowing slack
-   2. Choose kernel function
-   3. Compute αi
-   4. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
+    1. C = +inf for NO slack, C € R for allowing slack
+    2. Choose kernel function
+    3. Compute αi
+    4. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
 
 ## Artificial Neural Networks
 * 1-Layer NN can implement **any linear function**, 2-Layer NN **any function**
 * Perceptron/delta impossible as we lose info on weight of each neuron
 * **Trick**: Using continuous threshold-like functions
    * *Goal*: Minize error as function of *all* weights
-   1. Compute direction where total error increases most
-   2. Back-propragate weights in opposite direction wi ← wi − η\*∂E/∂wi
+    1. Compute direction where total error increases most
+    2. Back-propragate weights in opposite direction wi ← wi − η\*∂E/∂wi
 * In deep networks, gradients **vanish** as they become really small
-   * We can avoid by having non-squashing activation (Rectified Linear Unit aka ReLU)
+    * We can avoid by having non-squashing activation (Rectified Linear Unit aka ReLU)
 * **Convolutional Networks**: Alternating convolution and sub-sampling layers (pooling)
 * **Dropout**: Randomly *mute* neurons in network to avoid overfitting
-   * Dropout helps the network to generalize better and increase accuracy since the (possibly somewhat dominating) influence of a single node is decreased by dropout.
+    * Dropout helps the network to generalize better and increase accuracy since the (possibly somewhat dominating) influence of a single node is decreased by dropout.
    
 ## Ensemble Learning
 * Combining knowledge from **multiple** classifiers
@@ -125,14 +128,14 @@
 ### Boosting
 * The selection method encourages classifiers to be diverse, de-correlated
 * Creating single strong classifier from a set of weak learners
-   1. Apply learner to weighted samples
-   2. Increase weights of misclassified examples
+    1. Apply learner to weighted samples
+    2. Increase weights of misclassified examples
 * Adaboost Algorithm:
-   1. Set uniform weight to all samples
-   2. Train T classifiers and select the one minimizing training error
-   3. Compute **reliability coefficient**: αt =log(εt/1 - εt)
-   4. Update weights using **reliability coefficient**
-   5. Normalize all weights
+    1. Set uniform weight to all samples
+    2. Train T classifiers and select the one minimizing training error
+    3. Compute **reliability coefficient**: αt =log(εt/1 - εt)
+    4. Update weights using **reliability coefficient**
+    5. Normalize all weights
 
 ## Dimensionality Reduction
 
@@ -141,9 +144,9 @@
 * The eigenvectors help find the *direction* of the data in lower dimensions
 
 ### Discriminant function
-* **Idea**: Vectors in same class are localized close to each other
+* *Idea*: Vectors in same class are localized close to each other
 * Computes **closeness** in vectors by computing different types of similarities
-   * **Angle**: Computes cosine between vector (closer to 1, more likely to be in certain label)
-* Subspace Method: exploit localization of pattern distributions
-   1. **Idea**: Samples in same cass are localized in same subspace
-   2. Determine class of new input by calculating **projection length** to subspace
+    * **Angle**: Computes cosine between vector (closer to 1, more likely to be in certain label)
+* **Subspace Method**: exploit localization of pattern distributions
+    1. *Idea*: Samples in same cass are localized in same subspace
+    2. Determine class of new input by calculating **projection length** to subspace
