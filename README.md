@@ -42,7 +42,12 @@
     * Since Parametric are more interpretable, more prefered if error is similar or slighly lower
 * **Ridge Regression**: Reduce useless features to almost zero with *shrinkage penalty*
 * **The Lasso**: Can reduce useless features to exactly zero with *l1-norm of shrinkage penalty*
-    
+* **Effect on MSE, Variance, Bias**: As we increase *shrinkage penalty* (lambda or s)
+   * Variance slowly decreases then decreases rapidly
+   * Bias stays the same then rapidly increases
+   * MSE decreases to a minima then rapidly increases
+   * **Interpretation**: As we increase penalty, model generalize over important features (bias gets higher, and variance gets lower), but as we go over a tipping point, the models gets too simple and loses all features (reduced to 0) => high bias & low variance
+   
 ## Probalistic Reasoning
 * **Probility Methods** make results interpretable, and define a unified ML theory
 * **Bayes decision theory**:
