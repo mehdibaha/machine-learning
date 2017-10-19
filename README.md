@@ -23,7 +23,8 @@
 * **Least Squares**: Minimize squared error between target and input
 * **RANSAC**: Robust fit of model to data set S which contains outliers
 * **PARAM vs Non-PARAM**: Param better if close to the true form of *f* or high dimension
-* **Ridge Regression/The Lasso**: Useful for reducing to almost zero or zero certain features
+* **Ridge Regression**: Reduce useless features to almost zero with *shrinkage penalty*
+* **The Lasso**: Can reduce useless features to exactly zero with *l1-norm of shrinkage penalty*
 
 ## Challenges
 * *Model complexity>> == Training Error-- Test Error++ (sweet spot!)*:
