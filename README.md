@@ -85,20 +85,16 @@
     * Polynomial: (xT.y + 1)^p
     * Radial: exp -(x-y)^2/2sigma^2
     * Sigmoid: tanh(kxT.y - lamb)
-* Advantages:
-    * **++** Work well with small data
-    * **++** Fast
-    * **++** Generalize well
 * Kernel trick can solve inefficiency by avoid calculating higher dimenions
 * Maximize **∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj)** under **0≤αi≤C** ∀i:
     1. C = +inf for NO slack, C € R for allowing slack
-    2. Choose kernel function
-    3. Compute αi
+    2. Choose kernel function and find αi
     4. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
+* **Advantages**: Work well with small data + Fast + Generalize well
 
 ## Artificial Neural Networks
 * 1-Layer NN can implement **any linear function**, 2-Layer NN **any function**
-* Perceptron/delta impossible as we lose info on weight of each neuron
+* Perceptron/delta impossible as we lose info of weight in each neuron
 * **Trick**: Using continuous threshold-like functions
    * *Goal*: Minize error as function of *all* weights
     1. Compute direction where total error increases most
