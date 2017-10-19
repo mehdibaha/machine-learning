@@ -71,13 +71,16 @@
     1. Transform Input in high-dimension w/ function φ
     2. Choose unique separating hyperplane
     3. Classify new data using hyperplane
-* ++ Work well with small data ++ Fast ++ Generalize well
-* Kernel trick can solve inefficiency by avoiding calculating higher dimenions
-* **Maximize ∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj) under 0≤αi≤C ∀i**:
-   0. C = +inf for NO slack, C € R for allowing slack
-   1. Choose kernel function
-   2. Compute αi
-   3. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
+* Advantages:
+   * **++** Work well with small data
+   * **++** Fast
+   * **++** Generalize well
+* Kernel trick can solve inefficiency by avoid calculating higher dimenions
+* Maximize **∑αi−0.5\*∑ αi αj ti tj φ(⃗xi)T φ(⃗xj)** under **0≤αi≤C** ∀i:
+   1. C = +inf for NO slack, C € R for allowing slack
+   2. Choose kernel function
+   3. Compute αi
+   4. Classify data point x⃗ via ∑ αi ti K(x⃗,x⃗i) > 0
 
 ## Artificial Neural Networks
 * 1-Layer NN can implement **any linear function**, 2-Layer NN **any function**
@@ -113,9 +116,9 @@
 ## Dimensionality Reduction
 
 ### Principal Component Analysis
-* Reduce the number of variables by dealing wih components of larger varainces
+* Reduce the number of variables by selecting components of larger varainces
 * The eigenvectors help find the *direction* of the data in lower dimensions
 
 ### Discriminant function
 * Finds similarity in features by computing cosines between vectors
-* Similar vector are localized in a *supspace* spanning by a *set of basis* ui.
+* Similar vector are localized in a *subspace* spanned by a *set of basis* ui.
