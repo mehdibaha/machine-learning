@@ -136,5 +136,9 @@
 * The eigenvectors help find the *direction* of the data in lower dimensions
 
 ### Discriminant function
-* Finds similarity in features by computing cosines between vectors
-* Similar vector are localized in a *subspace* spanned by a *set of basis* ui.
+* **Idea**: Vectors in same class are localized close to each other
+* Computes **closeness** in vectors by computing different types of similarities
+   * **Angle**: Computes cosine between vector (closer to 1, more likely to be in certain label)
+   * Subspace Method: exploit localization of pattern distributions
+      1. **Idea**: Samples in same cass are localized in same subspace
+      2. Determine class of new input by calculating **projection length** to subspace
