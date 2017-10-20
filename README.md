@@ -58,6 +58,7 @@
    * Problem: More features => More difficult to model
    * Solution: **Naive Bayes** => All features are regarded as independent
 * **Maximum a Posteriori**: Model parameters are probabilities
+   * To classify data points, we need to know max ci P(xi|c=ci)
 * In generative approaches, each distribution will not be affected by the data from other class
 * We can try to fit a **mixture** of K distributions:
     * **K-Means** finds centroids with neighboring points
@@ -122,7 +123,7 @@
 ### Forest
 * Bagging + Random feature selection at *each* node
 * Two kinds of randomness:
-   * Sampling training data (like in Bagging)
+   * Generating bootstrap replicas
    * Feature selection at each node
 * Trees are less correlated i.e even higher variance between learners
 * Suited for multi-class problem
