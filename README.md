@@ -1,7 +1,7 @@
 # Summary
 
 ## General challenges
-* *Model complexity>> == Training Error-- Test Error++ (sweet spot!)*:
+* *Model complexity++ => Training Error-- & Test Error-- then: (sweet spot!) Test Error++
     * *Training set*: Fitting the models
     * *Validation set*: Determine hyperparameters
     * *Test set*: General assesment of the model
@@ -46,7 +46,7 @@
    * Variance slowly decreases then decreases rapidly
    * Bias stays the same then rapidly increases
    * MSE decreases to a minima then rapidly increases
-   * **Interpretation**: As we increase penalty, model generalize over important features (bias gets higher, and variance gets lower), but as we go over a tipping point, the models gets too simple and loses all features (reduced to 0) => high bias & low variance
+   * **Interpretation**: As we increase lambda (penalty), variance steadily decreases and bias increases. Training error always decreases, but test error decreases at first, then as we go over a tipping point, the models gets too simple and loses all features (reduced to 0) => high test error. For s, it does the contrary for bias and variance.
    
 ## Probalistic Reasoning
 * **Probility Methods** make results interpretable, and define a unified ML theory
@@ -58,6 +58,7 @@
    * Problem: More features => More difficult to model
    * Solution: **Naive Bayes** => All features are regarded as independent
 * **Maximum a Posteriori**: Model parameters are probabilities
+* In generative approaches, each distribution will not be affected by the data from other class
 * We can try to fit a **mixture** of K distributions:
     * **K-Means** finds centroids with neighboring points
         * **++** Guaranteed to converge
