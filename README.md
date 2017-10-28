@@ -1,7 +1,7 @@
 # Summary
 
 ## General challenges
-* Model complexity++ => Training Error-- & Test Error-- then: (sweet spot!) Test Error++
+* Model complexity++ ==> Training Error-- & Test Error-- then: (sweet spot!) Test Error++
     * *Training set*: Fitting the models
     * *Validation set*: Determine hyperparameters
     * *Test set*: General assesment of the model
